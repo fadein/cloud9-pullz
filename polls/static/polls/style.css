@@ -1,0 +1,16 @@
+li a {
+    color: green;
+}
+
+
+a:hover {
+	size: 200%;
+	font-weight: bolder;
+	color: midnightblue;
+}
+
+h1 {
+	color: blue;
+	background-color: orange;
+	font-weight: bolder;
+}
