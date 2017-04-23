@@ -4,6 +4,7 @@ from django.db import models
 
 # Create your models here.
 class Person(models.Model):
+    """Stores a few bits of information about a Person"""
     last = models.CharField(max_length=30)
     first = models.CharField(max_length=15)
     middle = models.CharField(max_length=15)
@@ -49,6 +50,7 @@ class IDNum(models.Model):
         return "%s = %s" % (self.idtype, self.issued)
 
 class Skill(models.Model):
+    """Represents a skill which a Person may possess. Presently, this is a free-text entry"""
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
     desc   = models.CharField('Skill description', max_length=50)
 
@@ -64,6 +66,7 @@ class ContactTyp(models.Model):
         return "%s = %s" % (self.abbr, self.desc)
 
 class Contact(models.Model):
+    """Links a Person to a ContactTyp; also stores detailed contact information"""
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
     contyp = models.ForeignKey(ContactTyp, on_delete=models.CASCADE)
     detail = models.CharField('Contact detail', max_length=50)
