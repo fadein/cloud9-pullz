@@ -1,3 +1,8 @@
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pullz-project.settings")
+
+import django
+django.setup()
 from muck.models import Person, IDTyp, IDNum, Skill, ContactTyp, Contact
 
 IDTyp.objects.get_or_create(abbr="DL", desc="Drivers License")
